@@ -1,0 +1,13 @@
+version: '3.6'
+services:
+    ## Define basler_test service
+    basler_test:
+        build:
+            context: ./
+            dockerfile: ./Dockerfile
+        volumes:
+            - /dev/bus/usb:/dev/bus/usb
+            - ./code:/code
+        privileged: true
+        image: basler_test
+        network_mode: host
